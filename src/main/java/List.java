@@ -28,7 +28,7 @@ public class List {
     }
     public int[] mergeSort(int[] array){ //归并排序
         int len = ArrayUtils.getLength(array);
-        if( len > 1){ //若array长度大于1 //*****将len>1改为>2
+        if( len > 3){ //若array长度大于1 //*****将len>1改为>3
             int mid = len/2;
             int[] temp1 = ArrayUtils.subarray(array, 0, mid); //截取array[0]-array[mid]
             int[] temp2 = ArrayUtils.subarray(array, mid, len);//截取array[mid+1]-array[len-1]
@@ -46,8 +46,8 @@ public class List {
         int n1 = 0;
         int n2 = 0;
         int n = 0;
-        while(n1 < len1 && n2 < len2 ){ //***将&&改成||
-            if( a1[n1] <= a2[n2]){
+        while(n1 < len1 && n2 < len2 ){
+            if( a1[n1] >= a2[n2]){ //改动：<=改为>=
                 temp[n++] = a1[n1++];
             }
             else{
@@ -64,4 +64,3 @@ public class List {
         return temp;
     }
 }
-
